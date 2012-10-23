@@ -1,0 +1,20 @@
+body {
+	background-color: LightGray;
+	font-family: Tahoma;
+	font-size: 9pt;
+}
+
+canvas {
+	background-color: White;
+	border: 1px solid Grey;
+}
+
+video {
+	background-color: White;
+	border: 1px solid Grey;
+}
+
+div.info_block, div.info_block > span {
+	float: left;
+	width: 150px;
+}
