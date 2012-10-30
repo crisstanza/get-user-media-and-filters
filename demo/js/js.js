@@ -88,6 +88,25 @@
 			newPixel.b = fixColorChannel(currentPixel.r * 0.272 + currentPixel.g * 0.534 + currentPixel.g * 0.131);
 			newPixel.a = currentPixel.a;
 			return newPixel;
+		},
+		function (currentPixel) {
+			var newPixel = { r: undefined, g: undefined, b: undefined, a: undefined };
+			var howMuch = 64;
+			newPixel.r = fixColorChannel(currentPixel.r + howMuch);
+			newPixel.g = fixColorChannel(currentPixel.g + howMuch);
+			newPixel.b = fixColorChannel(currentPixel.b + howMuch);
+			newPixel.a = currentPixel.a;
+			return newPixel;
+		},
+		function (currentPixel) {
+			var newPixel = { r: undefined, g: undefined, b: undefined, a: undefined };
+			var howMuch = 16;
+			var threshold = 127;
+			newPixel.r = fixColorChannel(currentPixel.r + (currentPixel.r > threshold ? -1 : 1) * howMuch);
+			newPixel.g = fixColorChannel(currentPixel.g + (currentPixel.g > threshold ? -1 : 1) * howMuch);
+			newPixel.b = fixColorChannel(currentPixel.b + (currentPixel.b > threshold ? -1 : 1) * howMuch);
+			newPixel.a = currentPixel.a;
+			return newPixel;
 		}
 	];
 	//
