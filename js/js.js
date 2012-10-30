@@ -67,6 +67,22 @@
 		},
 		function (currentPixel) {
 			var newPixel = { r: undefined, g: undefined, b: undefined, a: undefined };
+			newPixel.r = currentPixel.r;
+			newPixel.g = 0;
+			newPixel.b = currentPixel.b;
+			newPixel.a = currentPixel.a;
+			return newPixel;
+		},
+		function (currentPixel) {
+			var newPixel = { r: undefined, g: undefined, b: undefined, a: undefined };
+			newPixel.r = 0;
+			newPixel.g = currentPixel.g;
+			newPixel.b = currentPixel.b;
+			newPixel.a = currentPixel.a;
+			return newPixel;
+		},
+		function (currentPixel) {
+			var newPixel = { r: undefined, g: undefined, b: undefined, a: undefined };
 			newPixel.r = fixColorChannel(currentPixel.r * 0.393 + currentPixel.g * 0.769 + currentPixel.g * 0.189);
 			newPixel.g = fixColorChannel(currentPixel.r * 0.349 + currentPixel.g * 0.686 + currentPixel.g * 0.168);
 			newPixel.b = fixColorChannel(currentPixel.r * 0.272 + currentPixel.g * 0.534 + currentPixel.g * 0.131);
