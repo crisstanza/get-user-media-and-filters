@@ -64,11 +64,29 @@
 			newPixel.b = 0;
 			newPixel.a = currentPixel.a;
 			return newPixel;
+		},
+		function (currentPixel) {
+			var newPixel = { r: undefined, g: undefined, b: undefined, a: undefined };
+			newPixel.r = fixColorChannel(currentPixel.r * 0.393 + currentPixel.g * 0.769 + currentPixel.g * 0.189);
+			newPixel.g = fixColorChannel(currentPixel.r * 0.349 + currentPixel.g * 0.686 + currentPixel.g * 0.168);
+			newPixel.b = fixColorChannel(currentPixel.r * 0.272 + currentPixel.g * 0.534 + currentPixel.g * 0.131);
+			newPixel.a = currentPixel.a;
+			return newPixel;
 		}
 	];
 	//
 	function transformPixel(currentPixel, n) {
 		return transformations[n - 1](currentPixel);
+	}
+	//
+	function fixColorChannel(value) {
+		if ( value < 0 ) {
+			return 0;
+		} else if ( value > 255 ) {
+			return 255;
+		} else {
+			return parseInt(value);
+		}
 	}
 	//
 	function refreshCanvas(n, myVideo) {
