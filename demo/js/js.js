@@ -26,7 +26,7 @@
 		},
 		function (currentPixel) {
 			var newPixel = { r: undefined, g: undefined, b: undefined, a: undefined };
-			var gray = ( currentPixel.r + currentPixel.g + currentPixel.b ) / 3
+			var gray = fixColorChannel( (currentPixel.r + currentPixel.g + currentPixel.b) / 3 );
 			newPixel.r = gray;
 			newPixel.g = gray;
 			newPixel.b = gray;
