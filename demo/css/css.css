@@ -18,3 +18,7 @@ div.info_block, div.info_block > span {
 	float: left;
 	width: 150px;
 }
+
+div.info_block {
+	height: 150px;
+}
